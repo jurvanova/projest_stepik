@@ -13,6 +13,5 @@ class LoginPage(BasePage):
     def should_be_login_form(self):
         assert self.is_element_present(*LoginPageLocators.FORM_SELECTOR), 'Login form isn\'t presented'
 
-
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.REGISTER_SELECTOR), 'Registred form isn\'t presented'
