@@ -21,15 +21,7 @@ class ProductPage(BasePage):
         PRODUCT_PRICE = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_SELECT).text
         print(PRODUCT_PRICE)
         self.should_check_product_price(PRODUCT_PRICE)
-        
-        
-        
-    def tyu(self):
-        self.should_not_be_success_message()
-        
-    def ert(self):
-        self.should_not_be_message()
-        
+
 
     def should_check_cart_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET), 'Button add to cart is not found'
@@ -41,7 +33,7 @@ class ProductPage(BasePage):
         assert param == self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_MESSAGE).text, 'Price of product is incorrect'
 
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE),  f"Success message is presented, but should not be"
+        assert not self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'Success message is presented, but should not be'
            
     def should_not_be_message(self):
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), f"Success message is not presented, but should be"
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), 'Success message is not presented, but should be'
